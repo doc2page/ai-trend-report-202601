@@ -130,12 +130,10 @@
         </h1>
 
         <!-- 副标题 -->
-        <div id="subtitle-container" class="hidden">
-          <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8 animate-slide-up" style="animation-delay: 0.1s">
-            <span id="subtitle-text"></span>
-          </p>
-        </div>
-      </div>
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8 animate-slide-up" style="animation-delay: 0.1s">
+          2026 年 1 月：AI 行业进入"后模型时代"的深水区
+        </p>
+              </div>
     </header>
 
     <!-- 主内容区 -->
@@ -148,20 +146,17 @@
           </svg>
           目录导航
         </h3>
-        <ul>
-        <li><a href="#ai-创业趋势研究报告-2026-年-1-月">AI 创业趋势研究报告 2026 年 1 月</a>
-        <ul>
-        <li><a href="#执行摘要">📌 执行摘要</a></li>
-        <li><a href="#一2026-年-1-月宏观环境预测">一、2026 年 1 月：宏观环境预测</a></li>
-        <li><a href="#二2025-年预测回顾与验证">二、2025 年预测回顾与验证</a></li>
-        <li><a href="#三深度分析top-5-月度机会">三、深度分析：TOP 5 月度机会</a></li>
-        <li><a href="#四被高估-vs-被低估2026-年-1-月视角">四、被高估 vs 被低估（2026 年 1 月视角）</a></li>
-        <li><a href="#五中国-ai-生态2026-年-1-月预测">五、中国 AI 生态：2026 年 1 月预测</a></li>
-        <li><a href="#六2026-年-1-月可验证预测清单">六、2026 年 1 月可验证预测清单</a></li>
-        <li><a href="#七与-2025-年-1-月对比">七、与 2025 年 1 月对比</a></li>
-        <li><a href="#八后续跟踪建议">八、后续跟踪建议</a></li>
-        </ul></li>
-        </ul>
+        <div class="toc-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                  <li><a href="#执行摘要">📌 执行摘要</a>
+          <li><a href="#一2026-年-1-月宏观环境预测">一、2026 年 1 月：宏观环境预测</a>
+          <li><a href="#二2025-年预测回顾与验证">二、2025 年预测回顾与验证</a>
+          <li><a href="#三深度分析top-5-月度机会">三、深度分析：TOP 5 月度机会</a>
+          <li><a href="#四被高估-vs-被低估2026-年-1-月视角">四、被高估 vs 被低估（2026 年 1 月视角）</a>
+          <li><a href="#五中国-ai-生态2026-年-1-月预测">五、中国 AI 生态：2026 年 1 月预测</a>
+          <li><a href="#六2026-年-1-月可验证预测清单">六、2026 年 1 月可验证预测清单</a>
+          <li><a href="#七与-2025-年-1-月对比">七、与 2025 年 1 月对比</a>
+          <li><a href="#八后续跟踪建议">八、后续跟踪建议</a>
+        </div>
       </nav>
       
       <!-- 正文内容 -->
@@ -1084,17 +1079,6 @@
     // 初始化
     updateThemeIcons(savedTheme);
 
-    // ========== 副标题注入 ==========
-    const subtitleText = '2026 年 1 月：AI 行业进入"后模型时代"的深水区';
-    if (subtitleText && subtitleText !== '2026 年 1 月：AI 行业进入"后模型时代"的深水区') {
-      const subtitleContainer = document.getElementById('subtitle-container');
-      const subtitleTextEl = document.getElementById('subtitle-text');
-      if (subtitleContainer && subtitleTextEl) {
-        subtitleTextEl.textContent = subtitleText;
-        subtitleContainer.classList.remove('hidden');
-      }
-    }
-
     // ========== 阅读进度条 ==========
     const progressBar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
@@ -1171,6 +1155,11 @@
       if (!blockquote.classList.contains('meta-info')) {
         blockquote.classList.add('border-l-4', 'border-primary-500', 'pl-4', 'py-1', 'my-6', 'bg-slate-800/30', 'italic', 'text-slate-300');
       }
+    });
+
+    // ========== 隐藏元数据 blockquote ==========
+    document.querySelectorAll('.prose blockquote.meta-info').forEach(blockquote => {
+      blockquote.style.display = 'none';
     });
 
     // ========== TOC 样式处理 ==========
